@@ -15,7 +15,7 @@ namespace SalaryCalculatorTestProject
     public class CalculatorTests
     {
         [TestMethod]
-        public void GivenTheGetAnnualSalaryMethod_WhenIEnterTheHourlyWage_ThenIGetTheAnnualSalary()
+        public void GivenTheGetAnnualSalaryMethod_WhenIEnterTheHourlyWage_ThenIShouldGetTheAnnualSalary()
         {
             //ARRANGE
             SalaryCalculator sc = new SalaryCalculator();
@@ -26,6 +26,20 @@ namespace SalaryCalculatorTestProject
             //ASSERT
             //50 x 2080 =104,000
             Assert.AreEqual(104000, annualSalary);
+        }
+
+        [TestMethod]
+        public void GivenTheGetHourlyWageMethod_WhenIEnterTheAnnualSalary_ThenIShouldGetTheHourlyWage()
+        {
+            //ARRANGE
+            SalaryCalculator sc = new SalaryCalculator();
+
+            //ACT
+            decimal hourlyWage = sc.GetHourlyWage(52000);
+
+            //ASSERT
+            //50 x 2080 =104,000
+            Assert.AreEqual(25, hourlyWage);
         }
     }
 }
